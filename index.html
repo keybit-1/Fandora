@@ -1,87 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Fandora</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artist Information and Music Video</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header class="header">
-        <img src="">
-        <nav>
-            <li>
-                <a>About us</a>
-            </li>
-            <li>
-                <a>Something here</a>
-            </li>
-            <li>
-                <a>Contact Us</a>
-            </li>
-        </nav>
-    </header>
-    
-    <Section class="landingPage">
-        <div class="relative overflow-hidden bg-cover bg-no-repeat" style="
-        background-position: 50%;
-        background-image: url('https://thesmokehaus.co.uk/wp-content/uploads/2017/02/music-header.jpg');
-        height: 400px;
-      ">
-    <div
-      class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.75)] bg-fixed">
-      <div class="flex h-full items-center justify-center">
-        <div class="px-6 text-center text-white md:px-12">
-          <h1 class="mt-2 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
-            Search for a Musical Artist! </h1>
-            <form>   
-                <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
-                <div class="relative">
-                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                        <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
-                        </svg>
-                    </div>
-                    <input type="search" id="default-search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search Frank Ocean, Fleetwood Mac, Mac Miller" required>
-                </div>
-            </form>
-              <br>
-          <button type="button"
-            class="rounded border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-100 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200"
-            data-te-ripple-init data-te-ripple-color="light">
-            Search
-          </button>
+  <header class="header">
+    <img src="">
+    <nav>
+        <ul>
+        <li><a>About us</a></li>
+        <li><a>Something here</a></li>
+        <li><a>Contact Us</a></li>
+        </ul>
+    </nav>
+  </header>
+
+  <main class="landingPage">
+    <div class="relative overflow-hidden bg-cover bg-no-repeat" style="
+      background-position: 50%;
+      background-image: url('https://thesmokehaus.co.uk/wp-content/uploads/2017/02/music-header.jpg');
+      height: 400px;
+    ">
+      <div class="absolute top-0 right-0 bottom-0 left-0 h-full w-full overflow-hidden bg-[hsla(0,0%,0%,0.75)] bg-fixed">
+        <div class="flex h-full items-center justify-center">
+          <div class="px-6 text-center text-white md:px-12">
+            <h1 class="mt-2 mb-16 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl">
+              Search for a Musical Artist!
+            </h1>
+            <section>
+              <h2>Search for an Artist</h2>
+              <input type="text" id="artistInput" placeholder="Enter artist name" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <button id="searchBtn" class="rounded border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-100 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200" data-te-ripple-init data-te-ripple-color="light">Search</button>
+            </section>
+          </div>
         </div>
       </div>
     </div>
-    </Section>
 
+    <br>
+    <br>
+    <section id="artistInfoSection" style="display: none;">
+      <h2>Artist Information</h2>
+      <div id="artistInfo" class="artistInfo"></div>
+    </section>
 
-        <br>
-        <br>
-        <section class="artistInfoSection">
-        <h2>Artist Information</h2>
-        <div class="artistInfo"></div>
-        </section>
-        <br>
-        <br>
-        
-    </main>
+    <br>
+    <br>
 
-<footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+    <section id="videoSection" style="display: none;">
+      <h2>Popular Music from Artist</h2>
+      <div id="videoContainer"></div>
+    </section>
+  </main>
+
+  <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">FANDORA™</a>. All Rights Reserved.
-    </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">FANDORA™</a>. All Rights Reserved.</span>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-            <a href="mailto:fandora.site@gmail.com">Email us at: fandora.site@gmail.com</a>
+          <a href="mailto:fandora.site@gmail.com">Email us at: fandora.site@gmail.com</a>
         </li>
-    </ul>
+      </ul>
     </div>
-</footer>
-    
+  </footer>
+
+  <!-- Link your JavaScript file -->
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>
 
