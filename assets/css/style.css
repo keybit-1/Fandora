@@ -1,9 +1,10 @@
 .header nav {
-    background-color: #f2f2f2;
-    padding: 20px;
-    font-size: 20px;
+    background-color: FFF;
+    padding: 10px;
+    font-size: 20px;  
+    margin: -40px 10px -30px 20px ;
   }
-  
+
   .header nav ul {
     list-style-type: none;
     display: flex;
@@ -12,7 +13,8 @@
   
   .header nav ul li {
     display: inline-block;
-    margin-right: 10px;
+    /* margin-right: 10px; */
+    margin: -90px 20px 0px 20px ;
   }
   
   .header nav ul li a {
@@ -28,4 +30,58 @@
     cursor: pointer;
   }
 
-  
+  @media (max-width: 768px) {
+    .header {
+      text-align: center; /* Center align the elements in the header */
+    }
+
+    .header nav {
+      display: inline-block; /* Show the nav as a block */
+    }
+
+    .header img {
+      display: block; /* Make the logo image take full width */
+      /* margin: 0 auto; Center the logo image */
+      margin: 30px 90px 65px 100px;
+      height: 120px; /* Adjust the logo height for smaller screens */
+    }
+
+    ul {
+      padding: 20;
+      margin-top: -20px; /* Add some spacing below the logo */
+    }
+
+    li {
+      list-style: none; /* Remove the default list style */
+    }
+
+    li a {
+      display: block; /* Make each navigation link take full width */
+      padding: 10px 0; /* Add some vertical spacing for each link */
+    }
+  }
+
+  /* Tablet-specific styles */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    /* Adjust styles for tablets here */
+    img {
+      height: 140px; /* Adjust the logo height for tablet screens */
+    }
+  }
+
+  /* Desktop-specific styles */
+  @media (min-width: 1025px) {
+    /* Adjust styles for desktop here */
+    img {
+      height: 160px; /* Revert the logo height to the original size for desktop screens */
+    }
+
+    ul {
+      display: flex; /* Display the navigation links in a row */
+      justify-content: space-between; /* Spread the links horizontally */
+    }
+
+    li {
+      margin: 0 10px; /* Add some spacing between the links */
+    }
+  }
