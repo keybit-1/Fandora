@@ -13,7 +13,7 @@ async function searchArtist() {
 
   try {
     // Get the most popular music video using YouTube API
-    const youtubeResponse = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${youtubeApiKey}&part=snippet&type=video&q=${encodeURIComponent(artistInput + ' song')}&maxResults=1&chart=mostPopular&videoSyndicated=true`);
+    const youtubeResponse = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${youtubeApiKey}&part=snippet&type=video&q=${encodeURIComponent(artistInput + ' song')}&maxResults=1&chart=mostPopular&videoEmbeddable=true`);
     const youtubeData = await youtubeResponse.json();
 
     if (youtubeData.items.length > 0) {
@@ -24,7 +24,7 @@ async function searchArtist() {
       const videoLinkElement = document.createElement('a');
       videoLinkElement.href = videoLink;
       videoLinkElement.target = '_blank';
-      videoLinkElement.textContent = 'Checkout their music here!!';
+      videoLinkElement.textContent = 'Watch the Music Video';
 
       // Append the link element to the video container
       const videoContainer = document.getElementById('videoContainer');
@@ -60,11 +60,26 @@ async function searchArtist() {
     }
   } catch (error) {
     console.log('Error fetching data:', error);
+    // Handle the error appropriately
   }
 }
 
 // Attach event listener to search button
 document.getElementById('searchBtn').addEventListener('click', searchArtist);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
