@@ -1,7 +1,7 @@
 // Replace with your MusicBrainz API key
 const musicBrainzApiKey = 'YOUR_MUSICBRAINZ_API_KEY';
 // Replace with your YouTube API key
-const youtubeApiKey = 'AIzaSyCaeVUpevHapDi73iuIsADkoHbXKYynF3U';
+const youtubeApiKey = 'AIzaSyAegWz6FmhgbxjlM_qSmAHjXUa9F_METZU';
 
 // Function to search for an artist and retrieve the most popular music video for a song
 async function searchArtist() {
