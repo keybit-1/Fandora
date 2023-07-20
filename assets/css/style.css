@@ -1,3 +1,5 @@
+
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -40,7 +42,13 @@ body {
 #videoSection{
   max-width: 800px;
   margin: 20px auto;
-  padding: 0 20px;
+  padding: 20px;
+}
+
+
+#artistInfo,
+#videoContainer {
+  font-size: 120%;
 }
 
 
