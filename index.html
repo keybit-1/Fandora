@@ -6,6 +6,37 @@
   <title>Fandora</title>
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+  
+  .search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-container .flex-1 {
+    margin-bottom: 1rem;
+  }
+
+  .search-container .search-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  /* Updated styles for search bar */
+  .search-container input[type="text"] {
+    flex: 1;
+    width: 100%;
+    margin-right: 7rem;
+  }
+
+  /* Center the "Search for a Musical Artist!" text */
+  h1.text-3xl {
+    text-align: center;
+  }
+</style>
+
 </head>
 <body>
   <header class="header">
@@ -17,13 +48,13 @@
         loading="lazy" />
       <ul>
         <!-- <li><a>About us</a></li> -->
-        <li><a href="#search">Search here</a></li>
-        <li><a href="#email">Contact Us</a></li>
+        <!-- <li><a href="#search">Search here</a></li> -->
+        <li><a href="mailto:fandora.site@gmail.com">Contact Us</a></li>
       </ul>
     </nav>
   </header>
 
-  <main class="landingPage">
+  <main class="landingPage bg-gradient-to-b from-black via-black to-white-400">
     <div class="relative overflow-hidden bg-cover bg-no-repeat" style="
       background-position: 50%;
       background-image: url(./assets/images/title.png);
@@ -35,15 +66,19 @@
           <h1 class="text-3xl font-bold mb-8 text-gray-800" class="Search">
             Search for a Musical Artist!
           </h1>
-          <div class="flex items-center">
-            <div class="relative flex-1">
-              <input type="text" id="artistInput" placeholder="Enter artist name" class="p-4 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-              <select id="previousArtists" class="absolute inset-y-0 right-0 pr-3 text-sm text-gray-500 bg-white border border-gray-300 rounded-r-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option value="" selected disabled hidden>Previous Searches</option>
-              </select>
+          <div class="search-container items-center">
+            <div class="flex items-center">
+              <div class="relative">
+                <input type="text" id="artistInput" placeholder="Enter artist name" class="p-4 pr-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500" required>
+                <select id="previousArtists" class="absolute inset-y-0 right-0 pr-3 text-sm text-gray-500 bg-white border border-gray-300 rounded-r-md focus:ring-blue-500 focus:border-blue-500">
+                  <option value="" selected disabled hidden>Previous Searches</option>
+                </select>
+              </div>
             </div>
-            <button id="searchBtn" class="ml-4 rounded bg-gray-200 border-2 border-gray-200 px-4 py-2 text-sm font-medium uppercase text-gray-800 transition duration-150 ease-in-out hover:bg-gray-300 focus:border-gray-300 focus:text-gray-800 focus:outline-none focus:ring-0 active:bg-gray-400 active:border-gray-400 active:text-gray-800" data-te-ripple-init data-te-ripple-color="light">Search</button>
-            <button id="clearBtn" class="ml-2 rounded bg-gray-200 border-2 border-gray-200 px-4 py-2 text-sm font-medium uppercase text-gray-800 transition duration-150 ease-in-out hover:bg-gray-300 focus:border-gray-300 focus:text-gray-800 focus:outline-none focus:ring-0 active:bg-gray-400 active:border-gray-400 active:text-gray-800" data-te-ripple-init data-te-ripple-color="light">Clear Search History</button>
+            <div class="search-buttons mt-4">
+              <button id="searchBtn" class="rounded bg-gray-200 border-2 border-gray-200 px-4 py-2 text-sm font-medium uppercase text-gray-800 transition duration-150 ease-in-out hover:bg-gray-300 focus:border-gray-300 focus:text-gray-800 focus:outline-none focus:ring-0 active:bg-gray-400 active:border-gray-400 active:text-gray-800" data-te-ripple-init data-te-ripple-color="light">Search</button>
+              <button id="clearBtn" class="rounded bg-gray-200 border-2 border-gray-200 px-4 py-2 text-sm font-medium uppercase text-gray-800 transition duration-150 ease-in-out hover:bg-gray-300 focus:border-gray-300 focus:text-gray-800 focus:outline-none focus:ring-0 active:bg-gray-400 active:border-gray-400 active:text-gray-800" data-te-ripple-init data-te-ripple-color="light">Clear Search History</button>
+            </div>
           </div>
         </div>
       </div>
@@ -51,12 +86,11 @@
 
     <br>
     <br>
-    <section id="artistInfoSection"  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="display: none;">
-      <h2 class="w-full text-3xl text-white bg-black rounded-md text-center mb-2">Artist Information</h2>
-      <div id="artistInfo" class="artistInfo" class="text-4xl text-gray-900 dark:text-white"></div>
+    <section id="artistInfoSection"  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow" style="display: none;">
+      <h2 class="text-3xl font-bold mb-8 mt-5 text-gray-800 text-center">Artist Information</h2>
+      <div id="artistInfo" class="artistInfo" class="text-4xl text-gray-900"></div>
       <br>
-      <div id="videoContainer" class="w-10% flex justify-center items-center text-white bg-slate-700 hover:bg-green-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-slate-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-gray-800"></div>
-
+      <div id="videoContainer" class="w-10% flex justify-center items-center text-white bg-slate-700 hover:bg-green-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 focus:outline-none"></div>
     </section>
 
     <br>
@@ -66,10 +100,10 @@
     </section>    
 
 
-  <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
+  <footer class="bg-white rounded-lg shadow m-4">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">FANDORA™</a>. All Rights Reserved.</span>
-      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+      <span class="text-sm text-gray-500 sm:text-center">© 2023 <a href="https://flowbite.com/" class="hover:underline">FANDORA™</a>. All Rights Reserved.</span>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 sm:mt-0">
         <li>
           <a href="mailto:fandora.site@gmail.com" class="email">Email us at: fandora.site@gmail.com</a>
         </li>
@@ -81,6 +115,8 @@
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
 
 
 

@@ -1,7 +1,7 @@
 // Replace with your MusicBrainz API key
 const musicBrainzApiKey = 'YOUR_MUSICBRAINZ_API_KEY';
 // Replace with your YouTube API key
-const youtubeApiKey = 'AIzaSyAegWz6FmhgbxjlM_qSmAHjXUa9F_METZU';
+const youtubeApiKey = 'AIzaSyCM19Qyra7xWHsTycyp-7P6YWL9oyrCtes';
 
 // Function to search for an artist and retrieve the most popular music video for a song
 async function searchArtist() {
@@ -24,7 +24,7 @@ async function searchArtist() {
       const videoLinkElement = document.createElement('a');
       videoLinkElement.href = videoLink;
       videoLinkElement.target = '_blank';
-      videoLinkElement.textContent = 'Watch the Music Video';
+      videoLinkElement.textContent = 'Click here for video';
 
       // Append the link element to the video container
       const videoContainer = document.getElementById('videoContainer');
