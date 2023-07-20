@@ -16,11 +16,11 @@
         alt="Logo"
         loading="lazy" />
       <ul>
-      <li><a>About us</a></li>
-      <li><a>Something here</a></li>
-      <li><a>Contact Us</a></li>
+        <li><a>About us</a></li>
+        <li><a>Something here</a></li>
+        <li><a>Contact Us</a></li>
       </ul>
-  </nav>
+    </nav>
   </header>
 
   <main class="landingPage">
@@ -36,9 +36,15 @@
               Search for a Musical Artist!
             </h1>
             <section>
-              <input type="text" id="artistInput" placeholder="Enter artist name" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+              <div class="relative">
+                <input type="text" id="artistInput" placeholder="Enter artist name" class="block w-full p-4 pl-10 pr-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                <select id="previousArtists" class="absolute inset-y-0 right-0 pr-3 text-sm text-gray-500 bg-white border border-gray-300 rounded-r-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                  <option value="" selected disabled hidden>Previous Searches</option>
+                </select>
+              </div>
               <br>
               <button id="searchBtn" class="rounded border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-100 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200" data-te-ripple-init data-te-ripple-color="light">Search</button>
+              <button id="clearBtn" class="rounded border-2 border-neutral-50 px-[46px] pt-[14px] pb-[12px] text-sm font-medium uppercase leading-normal text-neutral-50 transition duration-150 ease-in-out hover:border-neutral-100 hover:bg-neutral-100 hover:bg-opacity-10 hover:text-neutral-100 focus:border-neutral-100 focus:text-neutral-100 focus:outline-none focus:ring-0 active:border-neutral-200 active:text-neutral-200" data-te-ripple-init data-te-ripple-color="light">Clear Search History</button>
             </section>
           </div>
         </div>
@@ -59,7 +65,7 @@
       <h2>Popular Music from Artist</h2>
       <div id="videoContainer"></div>
     </section>
-  </main>
+
 
   <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
@@ -76,4 +82,7 @@
   <script src="./assets/js/script.js"></script>
 </body>
 </html>
+
+
+
 

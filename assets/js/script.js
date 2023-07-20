@@ -32,7 +32,7 @@ async function searchArtist() {
 
       document.getElementById('videoSection').style.display = 'block';
     } else {
-      alert('No music video found for the artist!');
+      showModal('No music video found for the artist!');
     }
 
     // Search for artist using MusicBrainz API
@@ -55,17 +55,126 @@ async function searchArtist() {
         <p>Summary: ${summary}</p>
       `;
       document.getElementById('artistInfoSection').style.display = 'block';
+
+      // Save the searched artist data to local storage if it doesn't already exist
+      const artistData = {
+        name: artist.name,
+        type: artist.type,
+        country: artist.country,
+        genre: genre,
+        birthdate: birthdate,
+        summary: summary
+      };
+
+      // Get the existing saved artists from local storage
+      let savedArtists = localStorage.getItem('savedArtists');
+      savedArtists = savedArtists ? JSON.parse(savedArtists) : [];
+
+      // Check if the artist is already present in the saved artists list
+      const isArtistAlreadySaved = savedArtists.some(savedArtist => savedArtist.name === artistData.name);
+
+      if (!isArtistAlreadySaved) {
+        // Add the new artist data to the saved artists list
+        savedArtists.push(artistData);
+
+        // Update the saved artists in local storage
+        localStorage.setItem('savedArtists', JSON.stringify(savedArtists));
+      }
+
+      // Update the dropdown with the previously searched artists
+      updatePreviousArtistsDropdown(savedArtists);
     } else {
-      alert('Artist not found!');
+      showModal('Artist not found!');
     }
   } catch (error) {
     console.log('Error fetching data:', error);
-    // Handle the error appropriately
+    showModal('Error fetching data. Please try again.');
   }
+}
+
+// Function to handle the selection of a previously searched artist
+function selectPreviousArtist() {
+  const selectedArtistIndex = document.getElementById('previousArtists').value;
+
+  // Get the saved artists from local storage
+  let savedArtists = localStorage.getItem('savedArtists');
+  savedArtists = savedArtists ? JSON.parse(savedArtists) : [];
+
+  if (selectedArtistIndex < savedArtists.length) {
+    const selectedArtist = savedArtists[selectedArtistIndex];
+    document.getElementById('artistInput').value = selectedArtist.name;
+    searchArtist();
+  }
+}
+
+// Function to show a modal with a message
+function showModal(message) {
+  const modal = document.getElementById('modal');
+  const modalContent = document.getElementById('modalContent');
+  const modalMessage = document.getElementById('modalMessage');
+
+  modalMessage.textContent = message;
+  modal.classList.add('show');
+
+  modal.addEventListener('click', function () {
+    modal.classList.remove('show');
+  });
+
+  modalContent.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+}
+
+// Function to update the dropdown with the previously searched artists
+function updatePreviousArtistsDropdown(savedArtists) {
+  const previousArtistsDropdown = document.getElementById('previousArtists');
+  previousArtistsDropdown.innerHTML = '';
+
+  savedArtists.forEach((savedArtist, index) => {
+    const option = document.createElement('option');
+    option.value = index;
+    option.text = savedArtist.name;
+    previousArtistsDropdown.appendChild(option);
+  });
+}
+
+// Function to clear the previous search results
+function clearPreviousSearchResults() {
+  // Clear the saved artists in local storage
+  localStorage.removeItem('savedArtists');
+
+  // Clear the previous artists dropdown
+  const previousArtistsDropdown = document.getElementById('previousArtists');
+  previousArtistsDropdown.innerHTML = '';
 }
 
 // Attach event listener to search button
 document.getElementById('searchBtn').addEventListener('click', searchArtist);
+
+// Attach event listener to previous artists dropdown
+document.getElementById('previousArtists').addEventListener('change', selectPreviousArtist);
+
+// Attach event listener to clear button
+document.getElementById('clearBtn').addEventListener('click', clearPreviousSearchResults);
+
+// Apply CSS style to center the previous artists dropdown
+document.getElementById('previousArtists').style.margin = '0 auto';
+
+// Get the existing saved artists from local storage
+let savedArtists = localStorage.getItem('savedArtists');
+savedArtists = savedArtists ? JSON.parse(savedArtists) : [];
+
+// Update the dropdown with the previously searched artists
+updatePreviousArtistsDropdown(savedArtists);
+
+
+
+
+
+
+
+
+
 
 
 
