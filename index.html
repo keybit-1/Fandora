@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artist Information and Music Video</title>
+  <title>Fandora</title>
   <link rel="stylesheet" href="./assets/css/style.css">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -16,9 +16,9 @@
         alt="Logo"
         loading="lazy" />
       <ul>
-        <!-- <li><a>About us</a></li>
-        <li><a>Something here</a></li> -->
-        <li><a href="#footer">Contact Us</a></li>
+        <!-- <li><a>About us</a></li> -->
+        <li><a href="#search">Search here</a></li>
+        <li><a href="#email">Contact Us</a></li>
       </ul>
     </nav>
   </header>
@@ -32,7 +32,7 @@
     <div class="container mx-auto mt-8 px-4">
       <div class="max-w-xl mx-auto bg-white rounded-lg shadow-lg">
         <div class="p-8">
-          <h1 class="text-3xl font-bold mb-8 text-gray-800">
+          <h1 class="text-3xl font-bold mb-8 text-gray-800" class="Search">
             Search for a Musical Artist!
           </h1>
           <div class="flex items-center">
@@ -52,17 +52,18 @@
     <br>
     <br>
     <section id="artistInfoSection"  class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="display: none;">
-      <h2 class="w-full text-2xl text-white bg-black rounded-md text-center mb-2">Artist Information</h2>
-      <div id="artistInfo" class="artistInfo"></div>
+      <h2 class="w-full text-3xl text-white bg-black rounded-md text-center mb-2">Artist Information</h2>
+      <div id="artistInfo" class="artistInfo" class="text-4xl text-gray-900 dark:text-white"></div>
+      <br>
+      <div id="videoContainer" class="w-10% flex justify-center items-center text-white bg-slate-700 hover:bg-green-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-slate-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-gray-800"></div>
+
     </section>
 
     <br>
     <br>
 
-    <section id="videoSection" class="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="display: none;">
-      <h2 class="w-full text-2xl text-white bg-black rounded-md text-center mb-2">Popular Music from Artist</h2>
-      <div id="videoContainer" class="w-30% flex justify-center items-center text-white bg-slate-700 hover:bg-green-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-slate-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-gray-800"></div>
-    </section>
+    <section id="videoSection">
+    </section>    
 
 
   <footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
@@ -70,7 +71,7 @@
       <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://flowbite.com/" class="hover:underline">FANDORA™</a>. All Rights Reserved.</span>
       <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
         <li>
-          <a href="mailto:fandora.site@gmail.com">Email us at: fandora.site@gmail.com</a>
+          <a href="mailto:fandora.site@gmail.com" class="email">Email us at: fandora.site@gmail.com</a>
         </li>
       </ul>
     </div>

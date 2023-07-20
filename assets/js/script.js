@@ -47,7 +47,7 @@ async function searchArtist() {
       const summary = artist.disambiguation || 'N/A';
 
       artistInfo.innerHTML = `
-        <h3>${artist.name}</h3>
+        <h3>Name: ${artist.name}</h3>
         <p>Type: ${artist.type}</p>
         <p>Country: ${artist.country}</p>
         <p>Genre: ${genre}</p>
