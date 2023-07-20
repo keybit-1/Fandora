@@ -24,6 +24,8 @@ Fandora is a web application that allows users to search for musical artists and
 
 3. Open the `index.html` file in your web browser.
 
+You can also acess the deployed application here: https://keybit-1.github.io/Fandora/
+
 ## Usage
 
 1. Enter the name of a musical artist in the search input field.
