@@ -5,6 +5,7 @@ const youtubeApiKey = 'AIzaSyCaeVUpevHapDi73iuIsADkoHbXKYynF3U';
 
 // Function to search for an artist and retrieve the most popular music video for a song
 async function searchArtist() {
+  // Fetch the artist name from the input field
   const artistInput = document.getElementById('artistInput').value;
 
   // Clear previous results
@@ -12,34 +13,34 @@ async function searchArtist() {
   document.getElementById('videoContainer').innerHTML = '';
 
   try {
-    // Get the most popular music video using YouTube API
+    // Get the most popular music video using the YouTube API
     const youtubeResponse = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${youtubeApiKey}&part=snippet&type=video&q=${encodeURIComponent(artistInput + ' song')}&maxResults=1&chart=mostPopular&videoEmbeddable=true`);
     const youtubeData = await youtubeResponse.json();
 
     if (youtubeData.items.length > 0) {
+      // Retrieve the video ID and create a link to the video
       const videoId = youtubeData.items[0].id.videoId;
       const videoLink = `https://www.youtube.com/watch?v=${videoId}`;
-
       // Create a link element to display the video link
       const videoLinkElement = document.createElement('a');
       videoLinkElement.href = videoLink;
       videoLinkElement.target = '_blank';
       videoLinkElement.textContent = 'Click here for video';
-
       // Append the link element to the video container
       const videoContainer = document.getElementById('videoContainer');
       videoContainer.appendChild(videoLinkElement);
-
       document.getElementById('videoSection').style.display = 'block';
     } else {
+      // Show a modal if no music video is found for the artist
       showModal('No music video found for the artist!');
     }
 
-    // Search for artist using MusicBrainz API
+    // Search for the artist using the MusicBrainz API
     const musicBrainzResponse = await fetch(`https://musicbrainz.org/ws/2/artist?query=${encodeURIComponent(artistInput)}&fmt=json&limit=1&${musicBrainzApiKey}`);
     const musicBrainzData = await musicBrainzResponse.json();
 
     if (musicBrainzData.artists.length > 0) {
+      // Retrieve the artist's information and display it
       const artist = musicBrainzData.artists[0];
       const artistInfo = document.getElementById('artistInfo');
       const genre = artist.tags[0]?.name || 'N/A';
@@ -65,7 +66,6 @@ async function searchArtist() {
         birthdate: birthdate,
         summary: summary
       };
-
       // Get the existing saved artists from local storage
       let savedArtists = localStorage.getItem('savedArtists');
       savedArtists = savedArtists ? JSON.parse(savedArtists) : [];
@@ -84,6 +84,7 @@ async function searchArtist() {
       // Update the dropdown with the previously searched artists
       updatePreviousArtistsDropdown(savedArtists);
     } else {
+      // Show a modal if the artist is not found
       showModal('Artist not found!');
     }
   } catch (error) {
@@ -94,6 +95,7 @@ async function searchArtist() {
 
 // Function to handle the selection of a previously searched artist
 function selectPreviousArtist() {
+  // Retrieve the index of the selected artist from the dropdown
   const selectedArtistIndex = document.getElementById('previousArtists').value;
 
   // Get the saved artists from local storage
@@ -101,6 +103,7 @@ function selectPreviousArtist() {
   savedArtists = savedArtists ? JSON.parse(savedArtists) : [];
 
   if (selectedArtistIndex < savedArtists.length) {
+    // Retrieve the selected artist from the saved artists list and search for them
     const selectedArtist = savedArtists[selectedArtistIndex];
     document.getElementById('artistInput').value = selectedArtist.name;
     searchArtist();
@@ -109,6 +112,7 @@ function selectPreviousArtist() {
 
 // Function to show a modal with a message
 function showModal(message) {
+  // Display a modal with the specified message
   const modal = document.getElementById('modal');
   const modalContent = document.getElementById('modalContent');
   const modalMessage = document.getElementById('modalMessage');
@@ -127,6 +131,7 @@ function showModal(message) {
 
 // Function to update the dropdown with the previously searched artists
 function updatePreviousArtistsDropdown(savedArtists) {
+  // Update the dropdown with the list of saved artists
   const previousArtistsDropdown = document.getElementById('previousArtists');
   previousArtistsDropdown.innerHTML = '';
 
@@ -166,6 +171,7 @@ savedArtists = savedArtists ? JSON.parse(savedArtists) : [];
 
 // Update the dropdown with the previously searched artists
 updatePreviousArtistsDropdown(savedArtists);
+
 
 
 

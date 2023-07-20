@@ -14,6 +14,7 @@ Fandora is a web application that allows users to search for musical artists and
 - HTML
 - CSS
 - JavaScript
+- Tailwind
 
 ## Installation
 
